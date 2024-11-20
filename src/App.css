@@ -1,0 +1,15 @@
+*{
+  font-family: "Faculty Glyphic", sans-serif;
+}
+
+body{
+  background-color: #0c0c1d;
+  color:lightgray
+}
+
+.socailIcons{
+  width: 2rem;
+  height: 2rem;
+  color: white;
+  cursor: pointer;
+}
