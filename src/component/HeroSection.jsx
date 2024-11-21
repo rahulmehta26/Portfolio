@@ -49,12 +49,15 @@ const sliderVariants = {
 const HeroSection = () => {
   return (
     <div className=" relative h-screen overflow-hidden bg-gradient-to-b from-[#0c0c1d] to-[#111132]">
-      <div className="w-[70%]  h-[100%] m-auto ">
+
+      <div className="h-full w-[75%] mx-auto " >
+
+      <div className=" h-[100%]  ">
         <motion.div
           variants={textVariants}
           initial="initial"
           animate="animate"
-          className="h-[100%] space-y-8 flex flex-col justify-center "
+          className="h-[100%] space-y-8 relative z-10 flex flex-col justify-center "
         >
           <motion.h2
             variants={textVariants}
@@ -84,7 +87,14 @@ const HeroSection = () => {
               variants={textVariants}
               initial="initial"
               animate="animate"
-              className="border-2 font-extralight border-white p-2.5 rounded-md "
+              whileHover={{
+                scale: 1.05, 
+                transition: { duration: 0.3 }, 
+              }}
+              whileTap={{
+                scale:0.95
+              }}
+              className="border-2 font-extralight cursor-pointer  border-solid border-white p-2.5 rounded-md "
             >
               See the Latest Works
             </motion.button>
@@ -93,7 +103,14 @@ const HeroSection = () => {
               variants={textVariants}
               initial="initial"
               animate="animate"
-              className="border-2 font-extralight border-solid border-white p-2.5 rounded-md "
+              whileHover={{
+                scale: 1.05, 
+                transition: { duration: 0.3 }, 
+              }}
+              whileTap={{
+                scale:0.95
+              }}
+              className="border-2 font-extralight cursor-pointer border-solid border-white p-2.5 rounded-md "
             >
               Contact Me
             </motion.button>
@@ -108,11 +125,12 @@ const HeroSection = () => {
           />
 
         </motion.div>
+
           <motion.h1
             variants={sliderVariants}
             animate="animate"
             initial="Initial"
-            className="font-extrabold absolute -bottom-12 text-[#ffffff09] text-[10rem] whitespace-nowrap "
+            className="font-extrabold m-0 p-0  absolute -bottom-12 text-[#ffffff09] text-[10rem] whitespace-nowrap "
           >
             Be a Developer
           </motion.h1>
@@ -124,6 +142,7 @@ const HeroSection = () => {
           alt="Profile"
           className="w-[40rem] h-[40rem] object-cover"
         />
+      </div>
       </div>
     </div>
   );
