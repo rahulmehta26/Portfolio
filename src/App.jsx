@@ -8,6 +8,7 @@ import Services from './component/Services';
 import Portfolio from './component/Portfolio';
 import Contact from './component/Contact';
 import Cursor from './component/cursor';
+import About from './component/About';
 
 const App = () => {
   
@@ -23,6 +24,7 @@ const App = () => {
       <section className=' h-screen '><Services /></section>
       <section id = 'Portfolio' className=' h-screen ' ><Parallax type = "portfolio" /></section>
       <Portfolio />
+      <section id='About' className=' h-screen '><About /></section>
       <section id='Contact' className=' h-screen '><Contact /></section>
     </div>
   );
