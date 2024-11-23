@@ -83,18 +83,22 @@ const HeroSection = () => {
             animate="animate"
             className="flex items-center gap-x-8"
           >
+
             <motion.button
               variants={textVariants}
               initial="initial"
               animate="animate"
               whileHover={{
-                scale: 1.05, 
-                transition: { duration: 0.3 }, 
+                backgroundColor:'white',
+                color:'#0C0C1E',
+                scale:1.05, 
+                backgroundPosition: "0% 100%",
+                transition: { duration: 0.3, ease:'easeInOut' }, 
               }}
               whileTap={{
                 scale:0.95
               }}
-              className="border-2 font-extralight cursor-pointer  border-solid border-white p-2.5 rounded-md "
+              className="border-2 font-extralight text-md cursor-pointer  border-solid border-white p-2.5 rounded-md  "
             >
               See the Latest Works
             </motion.button>
@@ -104,8 +108,11 @@ const HeroSection = () => {
               initial="initial"
               animate="animate"
               whileHover={{
+                backgroundColor:'white',
+                color:'#0C0C1E',
+                backgroundPosition: "0% 100%",
                 scale: 1.05, 
-                transition: { duration: 0.3 }, 
+                transition: { duration: 0.3, ease:'easeInOut' }, 
               }}
               whileTap={{
                 scale:0.95
@@ -136,13 +143,19 @@ const HeroSection = () => {
           </motion.h1>
       </div>
 
-      <div className="h-[100%] absolute top-0 right-0 ">
+      <motion.div 
+      animate={{ rotateY: [0, 180, 0] }} 
+      transition={{
+        duration: 2,    
+        ease: "linear", 
+      }}
+      className="h-[100%] absolute top-0 right-0 ">
         <img
           src={profile}
           alt="Profile"
           className="w-[40rem] h-[40rem] object-cover"
         />
-      </div>
+      </motion.div >
       </div>
     </div>
   );

@@ -44,20 +44,30 @@ const Parallax = ({ type }) => {
       >
         
       </motion.div>
+
       <motion.div style={{
         backgroundImage: `url(${ type === 'services' ? sun : planets})`,
         backgroundSize: 'cover',
         backgroundPosition:'center',
         y:planetTransform,
       }} 
+      animate = {{rotate: 720}}
+      transition={{
+        repeat: Infinity, 
+        duration: 100,
+        ease: 'linear', 
+      }}
       className="absolute top-0 z-20 left-0 w-[100%] h-screen "
       ></motion.div>
-      <motion.div style={{
+
+      <motion.div 
+      style={{
         backgroundImage: `url(${stars})`,
         backgroundSize: 'cover',
         backgroundPosition:'center',
         x: starTransform
       }} 
+      
       className="absolute top-0 z-10 left-0 w-[100%] h-screen "
       ></motion.div>
     </div>

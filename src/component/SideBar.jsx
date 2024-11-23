@@ -106,8 +106,9 @@ const SideBar = () => {
               href={`#${item.title}`}
               key={item.id}
               variants={itemVariants}
-              whileHover={{ scale: 1.1 }}
+              whileHover={{ scale: 1.15 }}
               whileTap={{ scale: 0.9 }}
+              onClick={() => setIsToggle(false) }
               className="text-2xl  cursor-pointer text-black font-semibold mt-10"
             >
               {item.title}
