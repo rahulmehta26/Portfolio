@@ -7,7 +7,7 @@ import Parallax from "./component/Parallax";
 import Services from "./component/Services";
 import Portfolio from "./component/Portfolio";
 import Contact from "./component/Contact";
-import Cursor from "./component/cursor";
+import Cursor from "./component/Cursor";
 import About from "./component/About";
 
 const App = () => {
