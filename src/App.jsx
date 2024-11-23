@@ -13,11 +13,8 @@ import About from "./component/About";
 const App = () => {
   return (
     <div className="relative" >
+
       <Cursor />
-
-      <div className="bg-transparent w-[100%] h-screen absolute top-0 left-0 " ></div>
-
-      <div>
 
       <section id="Home" className="flex-col flex h-screen ">
         <Navbar />
@@ -39,8 +36,6 @@ const App = () => {
       <section id="Contact" className=" h-screen ">
         <Contact />
       </section>
-
-      </div>
     </div>
   );
 };
