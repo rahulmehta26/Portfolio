@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@theme {
+  /* Color definitions */
+  --color-button-background: #a259ff;
+  --color-background: #fde047;
+  --color-foreground: #0b0908;
+  --color-card-foreground: #0b0908;
+  --color-popover-foreground: #0b0908;
+  --color-secondary: #00c89e;
+  --color-muted-foreground: #78706b;
+  --color-accent: #f5f5f4;
+  --color-accent-foreground: #1b1917;
+  --color-destructive: #ee4444;
+  --color-ring: #0b0908;
+
+  /* Border radius */
+  --radius: 12px;
+  --radius-md: calc(12px - 2px);
+  --radius-sm: calc(12px - 4px);
+
+  /* Font families */
+
+    --font-sans: "Parkinsans","Segoe UI Emoji", sans-serif, ui-monospace, ui-serif;
+}
