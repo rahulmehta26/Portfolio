@@ -17,7 +17,7 @@ function Layout() {
         <SocialSidebar />
       </div>
 
-      <main className=" max-w-7xl mx-auto px-4 sm:px-2 md:px-6 py-8 md:py-16">
+      <main className="w-full mx-auto px-4 sm:px-2 md:px-[9.50rem] py-8 md:py-16">
         <Outlet />
       </main>
 

@@ -42,8 +42,8 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
           </Link>
 
           {!isActive && (
-            <div className=" absolute w-72 h-80 bg-[#0acf83] flex flex-col justify-center rounded-2xl p-4 top-0 right-0 space-y-6 ">
-              <div className="flex flex-col justify-center items-center md:items-start space-x-8">
+            <div className=" absolute w-72 h-72 bg-[#0acf83] flex flex-col justify-center rounded-2xl p-4 top-0 right-0 space-y-6 ">
+              <div className="flex flex-col justify-center items-center md:items-start mt-12 space-x-8">
                 {navItems.map(({ to, label }, i) => (
                   <Link
                     key={to}
@@ -116,14 +116,14 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
               />
 
               {isActive ? (
-                <RxCross2
+                <HiMenuAlt3
                   strokeWidth={1}
                   className=" w-6 h-6 text-black z-10 "
                 />
               ) : (
-                <HiMenuAlt3
+                <RxCross2
                   strokeWidth={1}
-                  className=" w-6 h-6 text-black z-10 "
+                  className={" w-6 h-6 z-10 " + ( !isActive ? "text-[#fff] " : "text-[#000]" ) }
                 />
               )}
             </motion.div>

@@ -70,13 +70,14 @@ const AnimatedText = ({ text }) => {
 };
 
 const Herosection = () => {
+
   return (
-    <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
+    <div className="flex flex-col md:flex-row md:items-center md:justify-between space-y-12">
       <motion.div
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
-        className="w-full flex md:flex-col "
+        className="w-full md:w-1/2 "
       >
         <h1 className=" text-3xl whitespace-nowrap space-y-4 sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-popover-foreground mb-4">
           Hello,
@@ -86,7 +87,7 @@ const Herosection = () => {
           Rahul <AnimatedText text="Mehta" />
         </h1>
 
-        <div className="md:flex w-[50%] md:w-[60%]">
+        <div className="md:flex w-[50%] md:w-[60%] ">
           <CustomButton label="Download CV" downloadUrl="./RahulMehta.pdf" />
         </div>
       </motion.div>
@@ -95,9 +96,9 @@ const Herosection = () => {
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
-        className="w-full flex flex-col items-center md:items-end "
+        className="w-full flex justify-center md:justify-end "
       >
-        <div className="w-[70%] h-[70%]  ">
+        <div className=" md:w-[40%] md:h-[100%] ">
           <img
             src="./avatar.png"
             alt="Profile"

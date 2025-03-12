@@ -22,11 +22,8 @@ const Footer = () => {
             <Link
               key={to}
               to={to}
-              className="text-[#fff] relative hover:text-[#000] hover:bg-button-background px-3 py-2 rounded-md text-base font-medium transition duration-150 ease-in-out"
+              className="text-[#fff] relative hover:bg-button-background px-3 py-2 rounded-md text-base font-medium transition duration-150 ease-in-out"
             >
-              {/* <motion.div 
-              className=" bg- absolute "
-              /> */}
               {label}
             </Link>
           ))}

@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import CustomButton from "../components/CustomButton";
 import emailjs from "@emailjs/browser";
@@ -12,6 +12,8 @@ const Contactsection = () => {
     message: "",
   });
 
+  const formRef = useRef();
+
   const handleSubmit = async (e) => {
 
     console.log("fcgvhbkl =>>>>")
@@ -21,7 +23,7 @@ const Contactsection = () => {
       const result = await emailjs.sendForm(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        e.target,
+        formRef.current,
         import.meta.env.VITE_EMAILJS_USER_ID
       );
 
@@ -67,17 +69,17 @@ const Contactsection = () => {
   };
 
   return (
-    <div className="container mx-auto">
+    <div className="container flex items-center justify-center">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="w-[22rem]"
+        className="w-[22rem] md:w-[26rem] border-2 border-solid border-[#000] shadow-[-8px_10px_4px_rgba(0,0,0,1)] rounded px-6 py-8"
       >
         <h2 className="text-3xl md:text-4xl font-bold mb-6 md:mb-8 text-foreground">
           Get in Touch
         </h2>
-        <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
+        <form ref={formRef} onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
           <div>
             <label className="block text-sm font-medium mb-1 md:mb-2 text-muted-foreground">
               Name
@@ -123,7 +125,10 @@ const Contactsection = () => {
             />
           </div>
 
-          <CustomButton label="Send Message" type="submit" />
+          <button type="submit" className="w-full">
+            <CustomButton label="Send Message" />
+          </button>
+
         </form>
       </motion.div>
     </div>

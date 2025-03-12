@@ -4,56 +4,16 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const skills = [
-  {
-    id: 1,
-    name: "JavaScript",
-    image: "/js.png",
-  },
-  {
-    id: 2,
-    name: "React",
-    image: "/react.png",
-  },
-  {
-    id: 3,
-    name: "React Native",
-    image: "/react.png",
-  },
-  {
-    id: 4,
-    name: "Tailwind",
-    image: "/tailwind.png",
-  },
-  {
-    id: 5,
-    name: "HTML",
-    image: "/html.png",
-  },
-  {
-    id: 6,
-    name: "CSS",
-    image: "/css.png",
-  },
-  {
-    id: 7,
-    name: "Framer Motion",
-    image: "/framer.png",
-  },
-  {
-    id: 8,
-    name: "GSAP",
-    image: "/gsap.svg",
-  },
-  {
-    id: 9,
-    name: "Github",
-    image: "/github.png",
-  },
-  {
-    id: 10,
-    name: "Bootstrap",
-    image: "/bootstrap.png",
-  },
+  { id: 1, name: "JavaScript", image: "/javascript.png" },
+  { id: 2, name: "TypeScript", image: "/typescript.png" },
+  { id: 3, name: "React", image: "/react.png" },
+  { id: 4, name: "React Native", image: "/react.png" },
+  { id: 5, name: "Tailwind", image: "/tailwind.png" },
+  { id: 6, name: "HTML", image: "/html.png" },
+  { id: 7, name: "CSS", image: "/css.png" },
+  { id: 8, name: "Github", image: "/github.png" },
+  { id: 9, name: "Framer Motion", image: "/framer.png" },
+  { id: 10, name: "Bootstrap", image: "/bootstrap.png" },
 ];
 
 const experiences = [
@@ -82,9 +42,8 @@ const Typewriter = ({ text, className }) => {
         setCurrentIndex((prev) => prev + 1);
       }, 50);
 
-      return () => clearInterval(interval); 
+      return () => clearInterval(interval);
     } else {
-      
       const timeout = setTimeout(() => {
         setIsTypingComplete(true);
       }, 1000);
@@ -96,7 +55,12 @@ const Typewriter = ({ text, className }) => {
   return (
     <motion.div
       className={className}
-      style={{width:"100%", display: "inline", overflow: "hidden", whiteSpace: "normal", }}
+      style={{
+        width: "100%",
+        display: "inline",
+        overflow: "hidden",
+        whiteSpace: "normal",
+      }}
     >
       <motion.span
         initial={{ opacity: 0 }}
@@ -111,22 +75,25 @@ const Typewriter = ({ text, className }) => {
         <motion.span
           initial={{ opacity: 1 }}
           animate={{ opacity: [1, 0, 1] }}
-          transition={{ duration: 0.5, repeat: Infinity, ease: [0.76, 0, 0.24, 1] }}
+          transition={{
+            duration: 0.3,
+            repeat: Infinity,
+            ease: [0.76, 0, 0.24, 1],
+          }}
           style={{
             display: "inline-block",
             width: "2px",
             height: "1em",
             backgroundColor: "currentColor",
             marginLeft: "2px",
-            verticalAlign: "middle", 
-            lineHeight: "1", 
+            verticalAlign: "middle",
+            lineHeight: "1",
           }}
         />
       )}
     </motion.div>
   );
 };
-
 
 const Aboutsection = () => {
   return (
@@ -155,7 +122,7 @@ const Aboutsection = () => {
               <img
                 src={skill?.image}
                 alt={`${skill.name} logo`}
-                className=" w-6 h-6 p-0.5 rounded-[2px] object-center object-cover "
+                className=" w-8 h-8 p-0.5 object-cover "
               />
               {skill.name}
             </motion.div>
