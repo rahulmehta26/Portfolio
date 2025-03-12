@@ -2,19 +2,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-
-const skills = [
-  { id: 1, name: "JavaScript", image: "/javascript.png" },
-  { id: 2, name: "TypeScript", image: "/typescript.png" },
-  { id: 3, name: "React", image: "/react.png" },
-  { id: 4, name: "React Native", image: "/react.png" },
-  { id: 5, name: "Tailwind", image: "/tailwind.png" },
-  { id: 6, name: "HTML", image: "/html.png" },
-  { id: 7, name: "CSS", image: "/css.png" },
-  { id: 8, name: "Github", image: "/github.png" },
-  { id: 9, name: "Framer Motion", image: "/framer.png" },
-  { id: 10, name: "Bootstrap", image: "/bootstrap.png" },
-];
+import { SKILLS } from "../utils/skills";
 
 const experiences = [
   {
@@ -111,7 +99,7 @@ const Aboutsection = () => {
 
         <h3 className="text-2xl font-bold mb-6 mt-4 text-foreground">Skills</h3>
         <div className="flex flex-wrap gap-2 md:gap-4 mb-12">
-          {skills.map((skill, index) => (
+          {SKILLS.map((skill, index) => (
             <motion.div
               key={skill.name}
               initial={{ opacity: 0, y: 20 }}
