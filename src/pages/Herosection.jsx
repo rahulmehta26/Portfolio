@@ -87,7 +87,7 @@ const Herosection = () => {
           Rahul <AnimatedText text="Mehta" />
         </h1>
 
-        <div className="md:flex w-[50%] md:w-[60%] ">
+        <div className="md:flex w-[60%] md:w-[60%] ">
           <CustomButton label="Download CV" downloadUrl="./RahulMehta.pdf" />
         </div>
       </motion.div>
