@@ -12,6 +12,15 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
   const [isMenuHovered, setMenuIsHovered] = useState(false);
   const [isActive, setIsActive] = useState(true);
 
+  const handleNavigation = (to) => {
+
+    if (location.pathname === to) {
+      return;
+    }
+    
+    setIsActive(true);
+  };
+
   return (
     <nav className="sticky top-0 z-50 bg-[#000] rounded-b-[1.5rem] backdrop-blur-sm shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -48,7 +57,9 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
                   <Link
                     key={to}
                     to={to}
-                    onClick={() => setIsActive(!isActive)}
+                    onClick={() => {
+                      handleNavigation(to);
+                    }}
                     className="text-[#000] hover:text-[#fff] px-3 py-2 rounded-md text-lg font-bold transition duration-150 ease-in-out"
                   >
                     <motion.span
