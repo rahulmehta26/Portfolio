@@ -101,7 +101,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
           >
             <motion.div
               onClick={() => {
-                setIsActive(!isActive), setMenuIsHovered(!isMenuHovered);
+                setIsActive(!isActive); setMenuIsHovered(!isMenuHovered);
               }}
               className="bg-[#fff] overflow-hidden flex justify-center items-center relative cursor-pointer rounded-full p-2.5 "
             >
