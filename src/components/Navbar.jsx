@@ -1,16 +1,20 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { navItems } from "../utils/navItems";
 import { RxCross2 } from "react-icons/rx";
 import { HiMenuAlt3 } from "react-icons/hi";
 
-const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
+const Navbar = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [isMenuHovered, setMenuIsHovered] = useState(false);
-  const [isActive, setIsActive] = useState(true);
+  const [isActive, setIsActive] = useState(false);
+
+  const toggleMenu = () => {
+    setIsActive((prev) => !prev);
+  }
 
   return (
     <nav className="sticky top-0 z-50 bg-[#000] rounded-b-[1.5rem] backdrop-blur-sm shadow-sm">
@@ -41,20 +45,24 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
             </motion.div>
           </Link>
 
-          {!isActive && (
+          {isActive && (
             <div className=" absolute w-72 h-72 bg-[#0acf83] flex flex-col justify-center rounded-2xl p-4 top-0 right-0 space-y-6 ">
               <div className="flex flex-col justify-center items-center md:items-start mt-12 space-x-8">
                 {navItems.map(({ to, label }, i) => (
                   <Link
                     key={to}
                     to={to}
-                    onClick={() => setIsActive(!isActive)}
+                    onClick={() => setIsActive(false) }
                     className="text-[#000] hover:text-[#fff] px-3 py-2 rounded-md text-lg font-bold transition duration-150 ease-in-out"
                   >
                     <motion.span
                       initial={{ y: 0, opacity: 0 }}
-                      animate={{ y: -10, opacity: 1 }}       
-                      transition={{ duration: 0.5, delay: 0.2 * i, ease: [0.76, 0, 0.24, 1], }}
+                      animate={{ y: -10, opacity: 1 }}
+                      transition={{
+                        duration: 0.5,
+                        delay: 0.2 * i,
+                        ease: [0.76, 0, 0.24, 1],
+                      }}
                       style={{ display: "inline-block" }}
                     >
                       {label}
@@ -68,12 +76,12 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
           <div
             className={`
               hidden md:block
-              ${!isActive ? " absolute right-2 " : " absolute right-0 "}`}
+              ${isActive ? " absolute right-2 " : " absolute right-0 "}`}
           >
             <motion.div
               onHoverStart={() => setMenuIsHovered(true)}
               onHoverEnd={() => setMenuIsHovered(false)}
-              onClick={() => setIsActive(!isActive)}
+              onClick={toggleMenu}
               className="bg-[#fff] overflow-hidden relative cursor-pointer rounded-full px-12 py-2 "
             >
               <motion.div
@@ -96,18 +104,16 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
 
           <div
             className={`md:hidden ${
-              !isActive ? " absolute right-2 " : " absolute right-0 "
+              isActive ? " absolute right-2 " : " absolute right-0 "
             }`}
           >
             <motion.div
-              onClick={() => {
-                setIsActive(!isActive), setMenuIsHovered(!isMenuHovered);
-              }}
+              onClick={toggleMenu}
               className="bg-[#fff] overflow-hidden flex justify-center items-center relative cursor-pointer rounded-full p-2.5 "
             >
               <motion.div
                 initial={{ y: "100%" }}
-                animate={{ y: isMenuHovered ? "0%" : "100%" }}
+                animate={{ y: isActive ? "0%" : "100%" }}
                 transition={{
                   duration: 0.5,
                   ease: [0.76, 0, 0.24, 1],
@@ -115,7 +121,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
                 className=" bg-button-background absolute inset-0 z-0 "
               />
 
-              {isActive ? (
+              {!isActive ? (
                 <HiMenuAlt3
                   strokeWidth={1}
                   className=" w-6 h-6 text-black z-10 "
@@ -123,7 +129,10 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
               ) : (
                 <RxCross2
                   strokeWidth={1}
-                  className={" w-6 h-6 z-10 " + ( !isActive ? "text-[#fff] " : "text-[#000]" ) }
+                  className={
+                    " w-6 h-6 z-10 " +
+                    (isActive ? "text-[#fff] " : "text-[#000]")
+                  }
                 />
               )}
             </motion.div>
