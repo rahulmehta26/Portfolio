@@ -95,9 +95,9 @@ const Navbar = () => {
               />
 
               {isActive ? (
-                <AnimatedText isMenuHovered={isMenuHovered} label="Menu" />
-              ) : (
                 <AnimatedText isMenuHovered={isMenuHovered} label="Close" />
+              ) : (
+                <AnimatedText isMenuHovered={isMenuHovered} label="Menu" />
               )}
             </motion.div>
           </div>
